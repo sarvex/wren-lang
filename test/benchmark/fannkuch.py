@@ -16,8 +16,7 @@ def fannkuch(n):
     rxrange = range(2, n - 1)
     nm = n - 1
     while 1:
-        k = perm1[0]
-        if k:
+        if k := perm1[0]:
             perm = perm1[:]
             flipsCount = 1
             kk = perm[k]
@@ -26,8 +25,7 @@ def fannkuch(n):
                 flipsCount += 1
                 k = kk
                 kk = perm[kk]
-            if maxFlipsCount < flipsCount:
-                maxFlipsCount = flipsCount
+            maxFlipsCount = max(maxFlipsCount, flipsCount)
             checksum += flipsCount if permSign else -flipsCount
 
         # Use incremental change to generate another permutation

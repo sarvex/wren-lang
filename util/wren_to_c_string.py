@@ -26,7 +26,7 @@ def wren_to_c_string(input_path, wren_source_lines, module):
     line = line.replace('"', "\\\"")
     line = line.replace("\n", "\\n\"")
     if wren_source: wren_source += "\n"
-    wren_source += '"' + line
+    wren_source += f'"{line}'
 
   return PREAMBLE.format(input_path, module, wren_source)
 
